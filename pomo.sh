@@ -87,7 +87,7 @@ function pomo_stat {
     # Return number of seconds since start of pomo block (work+break cycle).
     [[ -e $POMO ]] && running=$(cat "$POMO") || running=0
     if [[ -z $running ]]; then
-        pomo_start=$(stat -c +%Y "$POMO")
+        pomo_start=$(stat -f +%m "$POMO")
         now=$(date +%s)
         running=$((now-pomo_start))
     fi
