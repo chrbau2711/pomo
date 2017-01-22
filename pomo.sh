@@ -64,7 +64,7 @@ function pomo_pause {
         running=$(pomo_stat)
         mtime=$(date --date "@$(( $(date +%s) - running))" +%m%d%H%M.%S)
         rm "$POMO" # erase saved time stamp.
-        touch -m -t "$mtime" "$POMO"
+        touch -m -t $mtime "$POMO"
     else
         # Pause a pomo block.
         running=$(pomo_stat)
